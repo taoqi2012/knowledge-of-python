@@ -1,21 +1,53 @@
 1. l build a environment of programming
+
 2. l write a simple program
-3. l learn usefulness of comment
-#这是我们的第一个程序
-print('Hello world')
+print("Hello, Python!")  # 输出：Hello, Python!
+# 打印数字
+print(123)  # 输出：123
+# 打印计算结果
+print(10 + 5)  # 输出：15
+
+3. usefulness of comment
 # 注释：#
 # 快捷键：ctrl+/
 """
-    注释的分类：单行注释，多行注释
-    注释的作用：
-    1.注释是给人看的，不是给机器看的
-    2.注释是不会被解释的代码，解释器会忽略注释中的内容
-    3.注释是程序员之间的交流工具
+    注释的分类：单行注释，多行注释
+    注释的作用：
+    1.注释是给人看的，不是给机器看的
+    2.注释是不会被解释的代码，解释器会忽略注释中的内容
+    3.注释是程序员之间的交流工具
 
-    注释的注意点：
-    1 注释是不能相互嵌套的
-    2.一定要养成书写注释的好习惯
-    3.注释一定要有确切的表达意义
+    注释的注意点：
+    1 注释是不能相互嵌套的
+    2.一定要养成书写注释的好习惯
+    3.注释一定要有确切的表达意义
 """
-name = "taoqi"
-print(name)
+
+4. type of variable
+# 1. 基本数据类型
+name = "小明"          # 字符串（str）：用单/双引号包裹的文字
+age = 18              # 整数（int）：没有小数点的数字
+height = 1.75         # 浮点数（float）：带小数点的数字
+is_student = True     # 布尔值（bool）：只有True/False两种值
+
+# 2. 查看变量类型
+print(type(name))     # 输出：<class 'str'>
+print(type(age))      # 输出：<class 'int'>
+
+# 3. 变量运算（数字类型）
+a = 10
+b = 3
+print(a + b)  # 加法：13
+print(a - b)  # 减法：7
+print(a * b)  # 乘法：30
+print(a / b)  # 除法：3.3333333333333335
+print(a // b) # 整除：3
+print(a % b)  # 取余：1
+print(a **b) # 幂运算：1000
+
+# 4. 字符串操作
+greeting = "Hello"
+name = "Python"
+print(greeting + " " + name)  # 字符串拼接：Hello Python
+print(name * 3)               # 字符串重复：PythonPythonPython
+print(len(name))              # 字符串长度：6
