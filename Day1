@@ -60,5 +60,7 @@ if age >= 18:
     print("你已经成年了！")
 elif age > 12:
     print("你是青少年！")
-else:
+elif age >= 0:
     print("你还是小朋友！")
+else:
+    print("你还没出生！")
