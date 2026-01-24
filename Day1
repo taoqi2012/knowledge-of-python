@@ -1,6 +1,6 @@
-1. l build a environment of programming
+1. build a environment of programming
 
-2. l write a simple program
+2. write a simple program
 print("Hello, Python!")  # 输出：Hello, Python!
 # 打印数字
 print(123)  # 输出：123
