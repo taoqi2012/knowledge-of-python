@@ -98,10 +98,5 @@ def calculator():
             print(f"{num1} / {num2} = {result}")
     else:
         print("输入错误！请选择1-4的选项。")
-
-
 # 调用计算器函数
 calculator()
-
-
-
