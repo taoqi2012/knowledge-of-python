@@ -101,9 +101,50 @@ def calculator():
 # 调用计算器函数
 calculator()
 #核心新知识点：while True 无限循环、break（终止循环）、continue（跳过本次循环）；
-a = 34
+a = 34.1125
 while True:
-    a += 1
-    if a > 100:
+    a += 2
+    if a > 100 :
         break
 print(a)
+
+#4. simple type of data
+'''
+int（整数）
+float（浮点数）存数值
+str（字符串）存文本
+bool（布尔值）存真假
+list（列表，可修改）
+tuple（元组，不可修改）存多个数据
+dict（字典）以键值对形式存数据。
+'''
+
+#5. tuple
+# a. 定义元组
+point = (10, 20)          # 普通元组（坐标）
+single = (5,)             # 单个元素的元组（必须加逗号）
+mix_tuple = (1, "apple", 3.14)  # 混合类型元素
+
+# b. 取值（唯一核心操作，因为不能修改）
+print(point[0])           # 取第一个元素，输出 10
+print(mix_tuple[1:3])     # 切片，输出 ('apple', 3.14)
+
+# c. 尝试修改会报错（验证不可修改特性）
+# point[0] = 15  # 执行这行会报 TypeError: 'tuple' object does not support item assignment
+
+# d. 常用场景：函数返回多个值（本质是元组）
+def a():
+    return 100, 200  # 等价于 return (100, 200)
+width, height = a()
+print(width, height)  # 输出 100 200
+
+#6. dict
+# a. 定义字典
+person = {
+    "name": "小明",
+    "hobbies": ["打球", "听歌"]  # 值可以是列表
+}
+
+# 2. 取值（核心操作：通过键取值）
+print(person["name"])       # 如果没有name，会KeyError报错
+print(person.get("age"))    # 如果没有age，会输出none
