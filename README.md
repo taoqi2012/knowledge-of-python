@@ -12,3 +12,6 @@ Day2:
 1. loop
 2. list
 3. function
+4. simple type of data
+5. tuple
+6. dictionary
