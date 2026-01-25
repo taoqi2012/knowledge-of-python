@@ -9,3 +9,6 @@ Day1：
 5. conditional judgment
 
 Day2:
+1. loop
+2. list
+3. function
