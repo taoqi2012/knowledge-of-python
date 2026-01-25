@@ -1,15 +1,50 @@
 #1. loop
 #a. loop of 'for'
 # 遍历数字范围（0-4）
-a = 5
-for i in range(a):
-    print(i)  # 输出>=0且<a的整数
+# a.range(起始值)
+# 生成 0 到 4 的整数序列（不包含 5）
+nums = range(5)
+# 转成列表查看具体元素（方便理解，实际循环中无需转换）
+print(list(nums))  # 输出：[0, 1, 2, 3, 4]
+# 常用场景：控制循环执行 5 次
+for i in range(5):
+    print(f"循环第 {i+1} 次，i的值：{i}")
+# 输出：
+# 循环第 1 次，i的值：0
+# 循环第 2 次，i的值：1
+# 循环第 3 次，i的值：2
+# 循环第 4 次，i的值：3
+# 循环第 5 次，i的值：4
 
-# 遍历列表
-animals = ["猫", "老虎", "鳄鱼"]
-for animal in animals:
-    print(f"我喜欢养{animal}")  # 格式化字符串，更简洁的拼接方式。输出“我喜欢养猫，我喜欢养老虎，我喜欢养鳄鱼”
-print(f"我喜欢养{animals}")# 输出：“我喜欢养['猫', '老虎', '鳄鱼']”
+# b.range(起始值，终止值)
+# 生成 1 到 10 的整数序列（不包含 11）
+nums = range(1, 11)
+print(list(nums))  # 输出：[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# 常用场景：遍历 1-5 的数字
+for num in range(1, 6):
+    print(f"当前数字：{num}")
+# 输出：
+# 当前数字：1
+# 当前数字：2
+# 当前数字：3
+# 当前数字：4
+# 当前数字：5
+
+# c.range(起始值，终止值，步长)
+# 生成 0, 2, 4, 6, 8（从0开始，步长2，到10结束）
+nums1 = range(0, 10, 2)
+print(list(nums1))  # 输出：[0, 2, 4, 6, 8]
+
+# 生成 1, 4, 7（从1开始，步长3，到10结束）
+nums2 = range(1, 10, 3)
+print(list(nums2))  # 输出：[1, 4, 7]# 生成 10, 8, 6, 4, 2（从10开始，步长-2，到0结束）
+nums3 = range(10, 0, -2)
+print(list(nums3))  # 输出：[10, 8, 6, 4, 2]
+
+# 生成 5, 4, 3, 2, 1（从5开始，步长-1，到0结束）
+nums4 = range(5, 0, -1)
+print(list(nums4))  # 输出：[5, 4, 3, 2, 1]
 
 #b. loop of 'while'
 # 计算100以内正整数奇数的和(make by myself)
@@ -32,19 +67,97 @@ print("100以内奇数的和为：", b)  # 输出结果：2500
 numbers = [1, 2, 3, 4, 5]
 mixed = [1, "苹果", 3.14, True]  # 可以存储不同类型的数据
 
-# 访问列表元素（索引从0开始）
-print(numbers[0])  # 第一个元素：1
-print(numbers[-1]) # 最后一个元素：5
+# 访问列表元素
+nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# 基础切片：取 2-5（不包含5）
+print(nums[2:5])  # [2, 3, 4]
+
+# 省略 start：从开头取到 5（不包含）
+print(nums[:5])   # [0, 1, 2, 3, 4]
+
+# 省略 stop：从 5 取到末尾
+print(nums[5:])   # [5, 6, 7, 8, 9]
+
+# 步长 2：每隔1个取一个
+print(nums[::2])  # [0, 2, 4, 6, 8]
+
+# 负步长：倒序取值
+print(nums[::-1]) # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+# 切片赋值（批量修改）
+nums[0:3] = [10, 20, 30]  # 将前3个元素替换为 10,20,30
+print(nums)  # [10, 20, 30, 3, 4, 5, 6, 7, 8, 9]
 
 # 修改元素
 mixed[1] = False
 numbers[2] = 30
 print(numbers)     # 输出：[1, 2, 30, 4, 5]
 print(mixed)
+
 # 列表常用操作
-numbers.append(6)  # 添加元素到末尾：[1,2,30,4,5,6]
-numbers.remove(2)  # 删除指定元素：[1,30,4,5,6]
-print(len(numbers))# 列表长度：5
+# 添加：
+fruits = ["苹果", "香蕉", "橙子"]
+
+# append：末尾加单个元素
+fruits.append("葡萄")
+print(fruits)  # ['苹果', '香蕉', '橙子', '葡萄']
+
+# extend：批量加元素（注意：参数必须是可迭代对象，如列表、字符串）
+fruits.extend(["草莓", "西瓜"])
+# 错误示例：fruits.extend("荔枝") → 会拆分成 ['荔','枝'] 插入，需用 fruits.extend(["荔枝"])
+print(fruits)  # ['苹果', '香蕉', '橙子', '葡萄', '草莓', '西瓜']
+
+# insert：指定位置插入
+fruits.insert(0, "榴莲")  # 在索引0（第一个位置）插入
+print(fruits)  # ['榴莲', '苹果', '香蕉', '橙子', '葡萄', '草莓', '西瓜']
+
+fruits = ["榴莲", "苹果", "香蕉", "香蕉", "橙子"]
+
+# 删除：
+# del：按索引删
+del fruits[0]
+print(fruits)  # ['苹果', '香蕉', '香蕉', '橙子']
+
+# remove：按值删（只删第一个匹配项）
+fruits.remove("香蕉")
+print(fruits)  # ['苹果', '香蕉', '橙子']
+
+# pop：删元素并返回（常用在需要用到删除值的场景）
+last_fruit = fruits.pop()
+print(last_fruit)  # 橙子
+print(fruits)      # ['苹果', '香蕉']
+
+# clear：清空
+fruits.clear()
+print(fruits)      # []
+
+#列表的常用内置方法（高频）
+nums = [1, 2, 3, 2, 4, 2]
+print(nums.index(2))  # 1（第一个2的索引）
+print(nums.count(2))  # 3（2出现3次）
+nums = [3, 1, 4, 2, 5]
+
+# sort：原地升序
+nums.sort()
+print(nums)  # [1, 2, 3, 4, 5]
+
+# sort：原地降序
+nums.sort(reverse=True)
+print(nums)  # [5, 4, 3, 2, 1]
+
+# sorted：生成新列表（原列表不变）
+new_nums = sorted(nums)
+print(new_nums)  # [1, 2, 3, 4, 5]
+print(nums)      # [5, 4, 3, 2, 1]
+
+# reverse：原地反转
+nums.reverse()
+print(nums)      # [1, 2, 3, 4, 5]
+fruits = ["苹果", "香蕉", "橙子"]
+print(len(fruits))       # 3（长度）
+print("香蕉" in fruits)  # True（存在）
+print("榴莲" not in fruits)  # True（不存在）
 
 #3. function
 # 定义函数：计算两个数的和
