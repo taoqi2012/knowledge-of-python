@@ -100,3 +100,10 @@ def calculator():
         print("输入错误！请选择1-4的选项。")
 # 调用计算器函数
 calculator()
+#核心新知识点：while True 无限循环、break（终止循环）、continue（跳过本次循环）；
+a = 34
+while True:
+    a += 1
+    if a > 100:
+        break
+print(a)
