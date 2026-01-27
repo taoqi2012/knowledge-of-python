@@ -144,6 +144,21 @@ print(f"随机选2个水果：{selected}")  # 示例输出：随机选2个水果
 nums = random.sample(range(1, 11), 3)
 print(nums)  # 示例输出：[5, 8, 2]
 
+# 5. 打乱序列：random.shuffle(列表)
+import random
+
+# 打乱列表
+nums = [1, 2, 3, 4, 5]
+random.shuffle(nums)
+print(f"打乱后的列表：{nums}")  # 示例输出：打乱后的列表：[3, 1, 5, 2, 4]
+
+# 打乱字符串（需先转列表，再转回字符串）
+s = "abcde"
+s_list = list(s)
+random.shuffle(s_list)
+new_s = "".join(s_list)
+print(f"打乱后的字符串：{new_s}")  # 示例输出：打乱后的字符串：dceab
+
 # 6. 生成指定步长的随机整数：random.randrange(start, stop, step)
 # 作用：从start开始，以step为步长，到stop结束（不包含 stop），随机选 1 个整数
 num = random.randrange(1, 11, 2)
