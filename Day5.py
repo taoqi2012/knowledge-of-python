@@ -78,3 +78,84 @@ for i in range(1, 10):  # 行：1-9
     for j in range(1, i+1):  # 列：1到当前行号
         print(f"{j}×{i}={i*j}", end="\t")
     print()  # 换行
+
+# 1. 类
+class User:
+    """这是一个用户类，封装了用户的属性和行为（文档字符串，可选）"""
+
+    # 类属性：所有实例共享的属性（比如默认角色）
+    default_role = "普通用户"
+
+    # 构造方法：创建实例时自动调用，初始化实例属性
+    def __init__(self, username, password):
+        # 实例属性：每个用户独有的属性（用户名、密码），用self.绑定
+        self.username = username
+        self.password = password
+
+    # 方法1：打印用户信息（无返回值）
+    def print_info(self):
+        # 通过self访问实例属性和类属性
+        print(f"用户名：{self.username}")
+        print(f"密码：{self.password}（已隐藏部分字符）")
+        print(f"用户角色：{self.default_role}")
+
+
+    # 方法2：检查密码长度是否合规（有返回值）
+    def check_password_length(self):
+        password_length = len(self.password)
+        if 8 <= password_length <= 20:
+            return True, "密码长度合规"
+        else:
+            return False, f"密码长度不合规（当前{password_length}位，要求8-20位）"
+user1 = User("taoqi","20125017")
+print(user1.print_info())
+print(user1.check_password_length())
+
+#实现用户类的继承
+class Adminuser(User):
+    default_role = "管理员"
+    def __init__(self,username,password,admin_level):
+        super().__init__(username,password)
+        self.admin_level = admin_level
+    def delete_user(self,target_username):
+        print(f"✅ 管理员{self.username}（{self.admin_level}级）已删除用户：{target_username}")
+admin1 = Adminuser("Peter","12345678","最高")
+print(admin1.print_info())
+print(admin1.delete_user("taoqi"))
+
+# 定义一个Book类，封装图书的核心属性（书名、作者、页数、是否借出）。
+# 定义类的方法，实现核心功能（打印图书信息、标记借出、标记归还、检查是否可借出）。
+# 实例化多个图书对象，测试类的所有功能，体现类的封装性和复用性。
+class Book:
+    def __init__(self,name,author,pages,):
+        self.name = name
+        self.author = author
+        self.pages = pages
+        self.is_borrowed = False
+    def print_info(self):
+        borrow_status = "已借出" if self.is_borrowed else "未借出"
+        print(f"书名:{self.name}")
+        print(f"作者：{self.author}")
+        print(f"页数：{self.pages}页")
+        print(f"状态：{borrow_status}")
+    def borrow_book(self):
+        if not self.is_borrowed:
+            self.is_borrowed = True
+            print(f"✅ 《{self.name}》借出成功！")
+            return True
+        else:
+            print(f"❌ 《{self.name}》已被借出，无法重复借出！")
+            return False
+    def return_book(self):
+        if self.is_borrowed:
+            self.is_borrowed = False
+            print(f"✅ 《{self.name}》归还成功！")
+            return True
+        else:
+            print(f"❌ 《{self.name}》未被借出，无需归还！")
+            return False
+book1 = Book("动物庄园","Lisa","400")
+print(book1.print_info())
+print(book1.borrow_book())
+print(book1.borrow_book())
+print(book1.return_book())
