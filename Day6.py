@@ -64,7 +64,7 @@ def guess_num(x):
             a = int(input(""))
     else:
         print("恭喜！猜中了！")
-guess_num(94)
+guess_num(1)
 
 
 
@@ -83,3 +83,18 @@ def information(name,grade):
     else:
         print(f"{name}缺考，请及时办理补考手续！")
 information("taoqi",3874338748348387483)
+
+
+
+# 预设一个固定字符串（比如 my_str = "hello world, python is fun"）；
+# 预设一个要统计的字符（比如 target_char = "o"）；
+# 用循环（for 循环更简洁，也可尝试 while 循环）实现统计：计算 target_char 在 my_str 中出现了多少次；
+# 最后打印统计结果，代码总行数控制在 15 行以内；
+# 知识点：字符串遍历、循环、计数器变量，都是基础内容。
+def dictionary(my_str,target_char):
+    count = 0
+    for a in my_str:
+        if target_char == a:
+            count += 1
+    print(count)
+dictionary("l must do exercise for one hour every day this winter holiday","e")
