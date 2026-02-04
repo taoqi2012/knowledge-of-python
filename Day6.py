@@ -97,4 +97,5 @@ def dictionary(my_str,target_char):
         if target_char == a:
             count += 1
     print(count)
-dictionary("l must do exercise for one hour every day this winter holiday","e")
+dictionary("l must do exercise for one hour every day this winter holiday,"
+           " that can make me strong and healthy","e")
