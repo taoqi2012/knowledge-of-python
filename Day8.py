@@ -41,14 +41,15 @@ class Person:
         self.name = name
         self.age = age
     def show_base_info(self):
-        print(f"打印姓名：{self.name}，年龄：{self.age}")
+        print(f"打印姓名：{self.name}，年龄：{self.age}",end = " ")
 
 class Teacher(Person):
     def __init__(self,name,age,subject):
         super().__init__(name,age)
         self.subject = subject
     def show_teacher_info(self):
-        super().show_base_info() and print(f"教科目：{self.subject}")
+        super().show_base_info()
+        print(f"教科目：{self.subject}")
 
 b = Teacher("陶老师",25,"语文")
 b.show_teacher_info()
