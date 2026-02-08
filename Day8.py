@@ -60,11 +60,16 @@ b.show_teacher_info()
 # 规则：新单词的首字母必须等于上一个单词的尾字母（如 apple 尾字母是 e，下一个可以是 egg）；
 # 用 while 循环实现，直到用户输入错误为止，打印「接龙失败」。
 def word_chain(first_word):
+    a = [first_word]
     while True:
         new_word = input(f"当前单词为{first_word},请输入接龙的单词:")
-        if first_word[-1] == new_word[0]:
+        if new_word in a:
+            print("接龙失败，游戏结束")
+            break
+        elif first_word[-1] == new_word[0]:
             print(f"接龙成功！当前单词更新为：{new_word}")
             first_word = new_word
+            a.append(new_word)
         else:
             print("接龙失败，游戏结束")
             break
